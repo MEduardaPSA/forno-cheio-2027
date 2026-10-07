@@ -447,12 +447,14 @@ a { color: var(--framboesa); }
 }
 
 /* Bônus da versão completa */
-.bonus { background: var(--glace); }
-.bloco.bonus + .bloco, .bloco + .bloco.bonus { border-top: 0; }
+.bonus-chamada { margin-top: 2.6rem; text-align: center; }
+.bonus-chamada .botao { min-width: min(100%, 22rem); }
+.bonus-chamada .mao { font-size: 1.35rem; margin: 0.9rem 0 0; }
 .bonus-grade { display: grid; gap: 1.8rem; margin-top: 2.4rem; }
 .presente {
   position: relative;
   background: var(--cartao);
+  border: 1px solid var(--risco);
   border-radius: 0.6rem;
   padding: 2rem 1.3rem 1.2rem;
   box-shadow: 0 14px 26px -20px var(--sombra);
@@ -483,6 +485,10 @@ a { color: var(--framboesa); }
   background: var(--cartao);
 }
 .presente-duas { display: grid; gap: 1.2rem; }
+.presente .descobertas { margin-bottom: 1.4rem; }
+.chat-exemplo { margin: 0.4rem 0 0.6rem; }
+.chat-exemplo .msg { max-width: min(88%, 21rem); }
+.exemplo-nota { font-size: 1.3rem; text-align: right; }
 .presente, .presente-duas > *, .presente-tabela { min-width: 0; }
 .presente-tabela { margin: 0; }
 .presente-tabela .rolagem { margin: 0 0 0.4rem; }
@@ -762,6 +768,16 @@ html:not(.faq-js) .perguntas details[open] summary::after { transform: rotate(18
 .barra-fixa b { font-size: 1.1rem; }
 .barra-fixa .botao { font-size: 1rem; padding: 0.75rem 1.1rem; box-shadow: none; white-space: nowrap; }
 @media (min-width: 900px) { .barra-fixa { display: none; } .rodape { padding-bottom: 2.4rem; } }
+
+/* Celular: títulos das seções centralizados (o topo da página fica como está),
+   selo da garantia e chamada dos bônus no centro */
+@media (max-width: 759px) {
+  main h2 { text-align: center; }
+}
+@media (max-width: 559px) {
+  .garantia .carimbo { justify-self: center; }
+  .garantia h3 { text-align: center; }
+}
 
 /* Telas grandes, como 1920 x 1080 */
 @media (min-width: 1600px) {
