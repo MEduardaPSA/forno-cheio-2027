@@ -22,12 +22,12 @@
 var CONFIG = {
   checkouts: {
     ebook: {
-      a: "COLE_AQUI_O_LINK_DO_CHECKOUT_EBOOK_A",
+      a: "https://pay.cakto.com.br/ip6d3vv",
       b: "COLE_AQUI_O_LINK_DO_CHECKOUT_EBOOK_B",
       c: "COLE_AQUI_O_LINK_DO_CHECKOUT_EBOOK_C"
     },
     completo: {
-      a: "COLE_AQUI_O_LINK_DO_CHECKOUT_COMPLETO_A",
+      a: "https://pay.cakto.com.br/ycfavx3_1169287",
       b: "COLE_AQUI_O_LINK_DO_CHECKOUT_COMPLETO_B",
       c: "COLE_AQUI_O_LINK_DO_CHECKOUT_COMPLETO_C"
     }
