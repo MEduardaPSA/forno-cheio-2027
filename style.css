@@ -494,9 +494,6 @@ a { color: var(--framboesa); }
 .presente-tabela .rolagem { margin: 0 0 0.4rem; }
 .presente-tabela .planilha { min-width: 24rem; }
 .presente-tabela figcaption { font-size: 1.25rem; }
-.sit-baixo { color: var(--framboesa); font-weight: 700; }
-.sit-meio { color: var(--tinta-suave); font-weight: 650; }
-.sit-ok { font-weight: 650; }
 
 /* Campanhas */
 .campanhas { border-collapse: collapse; width: 100%; min-width: 26rem; font-size: 1rem; }
