@@ -199,7 +199,24 @@ var DEPOIMENTOS = [
     });
   }
 
-  /* 5. Barra fixa no celular: aparece depois do topo e some na seção das versões */
+  /* 5. Páginas por dentro: tocar para ver maior */
+  var janela = document.getElementById("ampliar");
+  if (janela && typeof janela.showModal === "function") {
+    var imgGrande = janela.querySelector("img");
+    document.querySelectorAll(".js-ampliar").forEach(function (link) {
+      link.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        var miniatura = link.querySelector("img");
+        imgGrande.src = link.getAttribute("href");
+        imgGrande.alt = miniatura ? miniatura.alt : "";
+        janela.showModal();
+      });
+    });
+    janela.querySelector(".ampliar-fechar").addEventListener("click", function () { janela.close(); });
+    janela.addEventListener("click", function (ev) { if (ev.target === janela) janela.close(); });
+  }
+
+  /* 6. Barra fixa no celular: aparece depois do topo e some na seção das versões */
   var barra = document.getElementById("barra-fixa");
   var topo = document.getElementById("topo");
   var oferta = document.getElementById("oferta");

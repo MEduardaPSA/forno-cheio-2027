@@ -356,62 +356,76 @@ a { color: var(--framboesa); }
   border-left: 3px solid var(--framboesa);
 }
 
-/* Ficha no papel pautado */
-.ficha {
-  position: relative;
-  margin: 2.2rem 0 0.5rem;
-  background-color: var(--cartao);
-  background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(2.1rem - 1px), var(--pauta) calc(2.1rem - 1px), var(--pauta) 2.1rem);
-  background-position: 0 3.3rem;
+/* Algumas páginas por dentro */
+.galeria-largura { max-width: 40rem; margin: 0 auto; padding: 0 1.25rem; }
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 1.4rem;
+  padding: 1rem 0 0.4rem;
+}
+.galeria figure { margin: 0; }
+.galeria a { display: block; border-radius: 0.9rem; }
+.galeria img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.9rem;
   border: 1px solid var(--risco);
-  border-radius: 0.3rem;
-  padding: 1.2rem 1.1rem 1.4rem 3.2rem;
-  box-shadow: 0 16px 28px -20px var(--sombra);
-  line-height: 2.1rem;
-  transform: rotate(-0.6deg);
+  box-shadow: 0 16px 28px -18px var(--sombra);
+  background: var(--cartao);
 }
-.ficha::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 2.3rem;
-  width: 2px;
-  background: var(--margem);
+.galeria figure:nth-child(1) img { transform: rotate(-1.2deg); }
+.galeria figure:nth-child(2) img { transform: rotate(1deg); }
+.galeria figure:nth-child(3) img { transform: rotate(0.6deg); }
+.galeria figure:nth-child(4) img { transform: rotate(-0.8deg); }
+.galeria figcaption { font-size: 1.3rem; text-align: center; margin-top: 0.8rem; line-height: 1.1; }
+@media (max-width: 759px) {
+  /* No celular, as páginas passam de lado, com o dedo */
+  .galeria-largura { padding: 0; }
+  .galeria {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 72%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 1.25rem;
+    padding: 1rem 1.25rem 0.6rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .galeria figure { scroll-snap-align: start; }
 }
-.ficha-titulo { font-size: 1.4rem; font-weight: 780; margin: 0; line-height: 2.1rem; }
-.ficha-data { margin: 0 0 0; color: var(--tinta-suave); }
-.ficha dl { margin: 0; }
-.ficha dt { font-weight: 720; }
-.ficha dd { margin: 0 0 0; }
-.ficha .alerta { font-size: 1.45rem; margin: 0.3rem 0 0; line-height: 2.1rem; }
-.ficha-tag {
+.por-dentro-fecho { margin-top: 2.4rem; }
+.por-dentro-fecho .destaque { margin-top: 0; }
+.por-dentro-fecho .botao { display: block; width: fit-content; min-width: min(100%, 22rem); margin: 0 auto; text-align: center; }
+@media (max-width: 759px) { .por-dentro-fecho .botao { width: auto; } }
+
+/* Janela para ver a página maior */
+.ampliar {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  max-width: min(92vw, 34rem);
+  max-height: 92vh;
+  overflow: visible;
+}
+.ampliar::backdrop { background: rgba(29, 20, 17, 0.82); }
+.ampliar img { display: block; width: 100%; height: auto; max-height: 88vh; object-fit: contain; border-radius: 0.8rem; }
+.ampliar-fechar {
   position: absolute;
   top: -0.9rem;
-  right: 1rem;
-  background: var(--kraft);
-  color: var(--no-kraft);
-  font-weight: 720;
-  font-size: 0.95rem;
-  line-height: 1;
-  padding: 0.55rem 0.9rem 0.55rem 1.5rem;
-  border-radius: 0.3rem 0.7rem 0.7rem 0.3rem;
-  transform: rotate(4deg);
-}
-.ficha-tag::before {
-  content: "";
-  position: absolute;
-  left: 0.55rem;
-  top: 50%;
-  width: 0.45rem;
-  height: 0.45rem;
-  margin-top: -0.225rem;
+  right: -0.6rem;
+  width: 2.6rem;
+  height: 2.6rem;
   border-radius: 50%;
-  background: var(--papel);
+  border: 0;
+  background: var(--framboesa);
+  color: var(--no-botao);
+  font: 700 1.6rem/1 "Bricolage Grotesque", system-ui, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 6px 14px -6px rgba(0, 0, 0, 0.5);
 }
-@media (min-width: 640px) {
-  .ficha dl { display: grid; grid-template-columns: 12rem 1fr; column-gap: 1rem; }
-}
+.ampliar-fechar:focus-visible { outline: 3px solid var(--papel); outline-offset: 2px; }
 
 /* Duas colunas */
 .duas { display: grid; gap: 1.8rem; margin-top: 1.6rem; }
@@ -494,6 +508,21 @@ a { color: var(--framboesa); }
 .presente-tabela .rolagem { margin: 0 0 0.4rem; }
 .presente-tabela .planilha { min-width: 24rem; }
 .presente-tabela figcaption { font-size: 1.25rem; }
+
+/* Linha do bônus especial no cartão da versão completa */
+.plano-itens .tem-especial { font-weight: 700; }
+.plano-itens .tem-especial span {
+  display: inline-block;
+  margin-left: 0.25rem;
+  background: var(--kraft);
+  color: var(--no-kraft);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.28rem 0.5rem;
+  border-radius: 0.25rem 0.5rem 0.5rem 0.25rem;
+  vertical-align: 0.1em;
+}
 
 /* Campanhas */
 .campanhas { border-collapse: collapse; width: 100%; min-width: 26rem; font-size: 1rem; }
@@ -790,4 +819,5 @@ html:not(.faq-js) .perguntas details[open] summary::after { transform: rotate(18
   .barra-fixa, .botao { transition: none; }
   .perguntas summary::before, .perguntas summary::after { transition: none; }
   .carimbo-anel { animation: none; }
+  .galeria img { transform: none !important; }
 }
