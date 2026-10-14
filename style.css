@@ -752,6 +752,34 @@ html:not(.faq-js) .perguntas details[open] summary::after { transform: rotate(18
 .final { text-align: left; }
 .ps { margin-top: 2.4rem; padding-top: 1.4rem; border-top: 1px dashed var(--risco); }
 
+/* Páginas de termos de uso e política de privacidade */
+.legal-topo { padding: 0.4rem 0 0; }
+.legal-marca { display: inline-block; text-decoration: none; }
+.legal { padding: 1.6rem 0 4rem; }
+.legal h1 { font-size: clamp(2rem, 6vw, 2.8rem); margin: 1.2rem 0 0.4rem; }
+.legal-data { color: var(--tinta-suave); font-size: 0.95rem; margin-bottom: 2rem; }
+.legal-voltar { font-size: 0.95rem; font-weight: 650; text-decoration: none; }
+.legal-voltar:hover { text-decoration: underline; }
+.legal h2 { font-size: 1.35rem; line-height: 1.25; margin: 2.6rem 0 0.8rem; text-align: left; }
+.legal h3 { font-size: 1.08rem; margin: 1.6rem 0 0.4rem; }
+.legal p, .legal li { font-size: 1.05rem; }
+.legal ul { padding-left: 1.2rem; margin: 0 0 1.1rem; }
+.legal li { margin-bottom: 0.55rem; }
+.legal li::marker { color: var(--framboesa); }
+.legal section { scroll-margin-top: 1.2rem; }
+.legal-sumario {
+  background: var(--cartao);
+  border: 1px solid var(--risco);
+  border-radius: 0.5rem;
+  padding: 1.1rem 1.2rem 0.6rem;
+  margin: 1.8rem 0 0.6rem;
+}
+.legal-sumario p { margin: 0 0 0.5rem; }
+.legal-sumario ol { margin: 0; padding-left: 1.4rem; columns: 2 14rem; column-gap: 1.6rem; }
+.legal-sumario li { margin-bottom: 0.4rem; break-inside: avoid; font-size: 0.98rem; }
+.legal-sumario li::marker { color: var(--framboesa); font-weight: 700; }
+.rodape-legal { padding-bottom: 2.4rem; }
+
 /* Rodapé */
 .rodape { padding: 2.4rem 0 7rem; font-size: 0.9rem; color: var(--tinta-suave); border-top: 1px solid var(--risco); }
 .rodape p { margin: 0 0 0.5rem; }
