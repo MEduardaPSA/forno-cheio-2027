@@ -783,6 +783,36 @@ html:not(.faq-js) .perguntas details[open] summary::after { transform: rotate(18
 /* Rodapé */
 .rodape { padding: 2.4rem 0 7rem; font-size: 0.9rem; color: var(--tinta-suave); border-top: 1px solid var(--risco); }
 .rodape p { margin: 0 0 0.5rem; }
+.rodape-whats {
+  margin: 0 0 1.8rem;
+  padding: 1.2rem 1.2rem 1.3rem;
+  background: var(--cartao);
+  border: 1px solid var(--risco);
+  border-radius: 0.6rem;
+  text-align: center;
+}
+.rodape-whats p { font-size: 1rem; color: var(--tinta); font-weight: 650; margin: 0 0 0.8rem; }
+.botao-whats {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-width: min(100%, 18rem);
+  padding: 0.85rem 1.4rem;
+  border: 2px solid var(--framboesa);
+  border-radius: 0.7rem;
+  color: var(--framboesa);
+  background: var(--cartao);
+  font-weight: 720;
+  font-size: 1.02rem;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.botao-whats svg { width: 1.35rem; height: 1.35rem; flex: 0 0 auto; }
+.botao-whats svg path { fill: none; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.botao-whats svg .pontos { stroke-width: 2.6; }
+.botao-whats:hover { background: var(--framboesa); color: var(--no-botao); }
+.botao-whats:focus-visible { outline: 3px solid var(--tinta); outline-offset: 3px; }
 
 /* Barra fixa no celular */
 .barra-fixa {
