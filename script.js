@@ -18,6 +18,10 @@
      - Enquanto a lista estiver vazia, a seção de depoimentos fica escondida.
      - Para ver como a seção fica antes de ter depoimentos, abra a página com ?ver=depoimentos no fim do endereço.
      - Use só depoimentos de verdade, com autorização da confeiteira para publicar.
+
+  5. WHATSAPP: coloque o número no campo whatsapp.numero, só com números, com DDD e o 55 do Brasil.
+     Exemplo: "5511987654321". Enquanto o número estiver vazio, o botão do rodapé fica escondido.
+     A mensagem que já aparece escrita para a cliente fica em whatsapp.mensagem.
 */
 var CONFIG = {
   checkouts: {
@@ -34,7 +38,11 @@ var CONFIG = {
   },
   precos: { ebook: 10.00, completo: 27.90 },
   nomes: { ebook: "Forno Cheio 2027 - só o e-book", completo: "Forno Cheio 2027 - versão completa" },
-  fimDoBonusDeNatal: "2027-01-01T00:00:00-03:00"
+  fimDoBonusDeNatal: "2027-01-01T00:00:00-03:00",
+  whatsapp: {
+    numero: "5561982695571",
+    mensagem: "Oi! Vim pela página do Forno Cheio 2027 e fiquei com uma dúvida."
+  }
 };
 
 /*
@@ -216,7 +224,19 @@ var DEPOIMENTOS = [
     janela.addEventListener("click", function (ev) { if (ev.target === janela) janela.close(); });
   }
 
-  /* 6. Barra fixa no celular: aparece depois do topo e some na seção das versões */
+  /* 6. Botão de WhatsApp no rodapé */
+  var numeroWhats = String(CONFIG.whatsapp.numero || "").replace(/\D/g, "");
+  var caixaWhats = document.getElementById("rodape-whats");
+  var linkWhats = document.getElementById("link-whats");
+  if (caixaWhats && linkWhats && numeroWhats.length >= 12) {
+    linkWhats.href = "https://wa.me/" + numeroWhats + "?text=" + encodeURIComponent(CONFIG.whatsapp.mensagem || "");
+    caixaWhats.hidden = false;
+    linkWhats.addEventListener("click", function () {
+      if (typeof window.fbq === "function") window.fbq("track", "Contact", { content_name: "WhatsApp do rodapé" });
+    });
+  }
+
+  /* 7. Barra fixa no celular: aparece depois do topo e some na seção das versões */
   var barra = document.getElementById("barra-fixa");
   var topo = document.getElementById("topo");
   var oferta = document.getElementById("oferta");
