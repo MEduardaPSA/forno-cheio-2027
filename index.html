@@ -7,7 +7,7 @@
 <meta name="description" content="As datas que realmente trazem pedidos em 2027, com o dia de abrir a agenda, o que oferecer e as mensagens prontas para mandar às suas clientes. A partir de R$ 10.">
 <meta property="og:title" content="Forno Cheio 2027 | O calendário de encomendas da confeiteira">
 <meta property="og:description" content="Em 2027, a Páscoa cai em 28 de março. Suas encomendas precisam abrir em fevereiro.">
-<meta name="theme-color" content="#FFFBF8">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Caveat:wght@500..700&display=swap" rel="stylesheet">
@@ -34,6 +34,10 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1671185087740383&ev=PageView&noscript=1"
 /></noscript>
+
+<a class="faixa-prazo" id="faixa-prazo" href="#oferta">
+  <span>Preço de lançamento válido só para as <strong>primeiras <span id="faixa-vagas">100</span> compradoras</strong>.</span>
+</a>
 
 <header class="topo" id="topo">
   <div class="largo">
@@ -89,33 +93,6 @@ src="https://www.facebook.com/tr?id=1671185087740383&ev=PageView&noscript=1"
   </div>
 </section>
 
-<section class="bloco">
-  <div class="coluna">
-    <h2>Todo calendário mostra o Dia das Mães. Nenhum mostra as cinco datas que decidem a venda.</h2>
-    <p>São elas que dizem se você vai vender com calma ou correr. No Forno Cheio 2027, cada campanha já vem com as cinco calculadas. Na Páscoa, ficam assim:</p>
-    <ol class="cobra">
-      <li><span class="num" aria-hidden="true">1</span><strong>Começar a preparar</strong><span class="quando">a partir de 25 de janeiro</span></li>
-      <li><span class="num" aria-hidden="true">2</span><strong>Abrir as encomendas</strong><span class="quando">quinta, 25 de fevereiro</span></li>
-      <li><span class="num" aria-hidden="true">3</span><strong>Fechar as encomendas</strong><span class="quando">quinta, 18 de março</span></li>
-      <li><span class="num" aria-hidden="true">4</span><strong>Produzir</strong><span class="quando">de 15 a 24 de março</span></li>
-      <li><span class="num" aria-hidden="true">5</span><strong>Última entrega</strong><span class="quando">quinta, 25 de março</span></li>
-    </ol>
-
-    <h3>Depois vem o seu limite</h3>
-    <p>Você descobre quantos pedidos cabem na sua semana olhando para o que trava primeiro: o forno, a geladeira, as suas mãos ou as entregas.</p>
-    <figure class="limite" aria-label="Exemplo: forno, 8 bolos por dia. Suas mãos, 9. Geladeira, 6. Entregas, 8. O menor número, 6, é o limite.">
-      <div class="limite-linha" aria-hidden="true"><span>Forno</span><span class="limite-barra"><i style="width:88%"></i></span><b>8</b></div>
-      <div class="limite-linha" aria-hidden="true"><span>Suas mãos</span><span class="limite-barra"><i style="width:100%"></i></span><b>9</b></div>
-      <div class="limite-linha manda" aria-hidden="true"><span>Geladeira</span><span class="limite-barra"><i style="width:66%"></i></span><b>6</b></div>
-      <div class="limite-linha" aria-hidden="true"><span>Entregas</span><span class="limite-barra"><i style="width:88%"></i></span><b>8</b></div>
-      <figcaption class="mao">quem manda é o menor número: 6 bolos por dia</figcaption>
-    </figure>
-    <p>Esse número vira a sua agenda. E vira também o jeito mais honesto de vender, porque quando você diz que as vagas estão acabando, é verdade.</p>
-
-    <p class="frase-central"><span>Calendário comum avisa quando a data chega.</span> <span>O Forno Cheio avisa quando ainda dá tempo de vender.</span></p>
-  </div>
-</section>
-
 <section class="bloco por-dentro" id="por-dentro">
   <div class="coluna">
     <h2>Algumas páginas por dentro</h2>
@@ -146,6 +123,13 @@ src="https://www.facebook.com/tr?id=1671185087740383&ev=PageView&noscript=1"
   <div class="coluna por-dentro-fecho">
     <p class="destaque">Isso foi só uma espiadinha. O seu 2027 inteiro está nas outras mais de 200 páginas.</p>
     <a class="botao" href="#oferta">Quero ver o resto</a>
+  </div>
+</section>
+
+<section class="bloco depoimentos" id="depoimentos" hidden>
+  <div class="coluna">
+    <h2>O que as confeiteiras estão dizendo</h2>
+    <div class="depos" id="lista-depoimentos"></div>
   </div>
 </section>
 
@@ -180,65 +164,71 @@ src="https://www.facebook.com/tr?id=1671185087740383&ev=PageView&noscript=1"
 
     <div class="bonus-grade">
 
-      <article class="presente presente-largo">
+      <article class="presente presente-com-foto">
         <span class="selo-completo">na versão completa</span>
-        <h3>Planilha Forno Cheio</h3>
-        <div class="presente-duas">
-          <div>
-            <p>Funciona no celular. Tem as datas de 2027 já preenchidas, o cálculo do seu limite de pedidos, o controle de cada encomenda com sinal e saldo, a sua lista de clientes e os resultados de cada campanha.</p>
-            <p>Vem com um guia passo a passo, para você usar mesmo que nunca tenha mexido numa planilha. Em dezembro, você vai saber qual data valeu mais a pena por hora de trabalho. É esse número que decide o seu 2028.</p>
-          </div>
-          <figure class="presente-tabela">
-            <div class="rolagem">
-              <table class="planilha" aria-label="Exemplo da aba Visão anual da planilha">
-                <thead><tr><th>Campanha</th><th>Abrir</th><th>Fechar</th><th>Entregar até</th><th>Vou fazer?</th></tr></thead>
-                <tbody>
-                  <tr><td>Páscoa</td><td>25/2</td><td>18/3</td><td>25/3</td><td class="status-sim">sim</td></tr>
-                  <tr><td>Dia das Mães</td><td>17/4</td><td>4/5</td><td>8/5</td><td class="status-sim">sim</td></tr>
-                  <tr><td>Dia dos Namorados</td><td>22/5</td><td>8/6</td><td>12/6</td><td>talvez</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <figcaption class="mao">as datas de 2027 já vêm preenchidas</figcaption>
-          </figure>
+        <figure class="presente-foto">
+          <a class="js-ampliar" href="img/bonus-planilha.jpg"><img src="img/bonus-planilha.jpg" width="720" height="1080" loading="lazy" alt="Imagem do bônus Planilha Forno Cheio 2027: 11 abas, funciona no celular, calcula o limite de pedidos, organiza clientes, sinal e saldo e mostra o lucro por hora de cada data, com mini e-book passo a passo."></a>
+        </figure>
+        <div class="presente-texto">
+          <h3>Planilha Forno Cheio</h3>
+          <p>Funciona no celular. Tem as datas de 2027 já preenchidas, o cálculo do seu limite de pedidos, o controle de cada encomenda com sinal e saldo, a sua lista de clientes e os resultados de cada campanha.</p>
+          <p>Vem com um guia passo a passo, para você usar mesmo que nunca tenha mexido numa planilha. Em dezembro, você vai saber qual data valeu mais a pena por hora de trabalho. É esse número que decide o seu 2028.</p>
+          <p class="presente-preco"><span>Na versão completa</span> <strong>R$&nbsp;0</strong></p>
         </div>
       </article>
 
-      <article class="presente">
+      <article class="presente presente-com-foto">
         <span class="selo-completo">na versão completa</span>
-        <h3>Textos para copiar</h3>
-        <p>Mais do que um arquivo de copiar e colar: é um guia de mensagens. Cada texto vem com o porquê de funcionar, para você saber adaptar quando a situação for diferente. Abre no celular e copia com um toque.</p>
-        <ul class="descobertas">
-          <li>As mensagens das 11 campanhas, da abertura da agenda à última chamada.</li>
-          <li>16 mensagens por situação: lembrete, confirmação, pós-venda e pedido de indicação.</li>
-          <li>O que responder quando a cliente diz "achei caro", "vou pensar" ou "tem desconto?".</li>
-          <li>O que dizer quando a entrega atrasa, o sabor sai trocado ou a cliente quer cancelar.</li>
-          <li>40 ganchos e 26 legendas para o Instagram, com a ordem certa de postar.</li>
-          <li>As 6 regras que fazem uma mensagem vender, com exemplos de antes e depois.</li>
-        </ul>
-        <div class="chat chat-exemplo" aria-label="Exemplo do guia. A cliente diz: achei caro. Resposta: Entendo, Carla! Se ficou acima do que você pensou, tenho o kit menor, por R$ 39,90, que também vai em embalagem de presente. Quer que eu te mande a foto?">
-          <div class="msg msg-cliente" aria-hidden="true"><p>Achei caro.</p></div>
-          <div class="msg msg-confeiteira" aria-hidden="true"><p>Entendo, Carla! Se ficou acima do que você pensou, tenho o kit menor, por R$&nbsp;39,90, que também vai em embalagem de presente. Quer que eu te mande a foto?</p></div>
+        <figure class="presente-foto">
+          <a class="js-ampliar" href="img/bonus-textos.jpg"><img src="img/bonus-textos.jpg" width="720" height="1080" loading="lazy" alt="Imagem do bônus Textos para copiar: 16 mensagens para situações do dia a dia, respostas para objeções, 40 ganchos e 26 legendas, num documento que se copia com um toque no celular."></a>
+        </figure>
+        <div class="presente-texto">
+          <h3>Textos para copiar</h3>
+          <p>Todas as mensagens e legendas do e-book num documento que você copia com um toque no celular. Cada texto vem com o porquê de funcionar, para você adaptar ao seu jeito.</p>
+          <ul class="descobertas">
+            <li>As mensagens das 11 campanhas, da abertura à última chamada.</li>
+            <li>O que responder quando a cliente diz "achei caro" ou "vou pensar".</li>
+            <li>O que dizer quando a entrega atrasa ou a cliente quer cancelar.</li>
+            <li>40 ganchos e 26 legendas para o Instagram.</li>
+          </ul>
+          <p class="presente-preco"><span>Na versão completa</span> <strong>R$&nbsp;0</strong></p>
         </div>
-        <p class="exemplo-nota mao">não baixe o preço: ofereça outro produto que caiba no bolso dela</p>
       </article>
 
-      <article class="presente">
+      <article class="presente presente-com-foto">
         <span class="selo-completo">na versão completa</span>
-        <h3>Calendário para imprimir</h3>
-        <p>O ano inteiro numa página e um mês por folha, para a parede ou a porta da geladeira. Com espaço para anotar as datas das suas clientes: o aniversário do filho da Ana em março, as bodas da dona Lúcia em agosto.</p>
+        <figure class="presente-foto">
+          <a class="js-ampliar" href="img/bonus-calendario.jpg"><img src="img/bonus-calendario.jpg" width="720" height="1080" loading="lazy" alt="Imagem do bônus Calendário para imprimir: o ano inteiro numa página, um mês por folha, para a parede ou a geladeira, com espaço para anotar as datas das clientes."></a>
+        </figure>
+        <div class="presente-texto">
+          <h3>Calendário para imprimir</h3>
+          <p>O ano inteiro numa página e um mês por folha, para a parede ou a porta da geladeira. Com espaço para anotar as datas das suas clientes: o aniversário do filho da Ana em março, as bodas da dona Lúcia em agosto.</p>
+          <p class="presente-preco"><span>Na versão completa</span> <strong>R$&nbsp;0</strong></p>
+        </div>
       </article>
 
-      <article class="presente so-2026">
+      <article class="presente presente-com-foto so-2026">
         <span class="selo-completo">na versão completa</span>
-        <h3>Natal 2026 Expresso</h3>
-        <p>Um plano curto para o Natal deste ano: um caminho para cada data de compra, um cardápio mínimo só com o que você já sabe fazer e as mensagens com as datas de 2026. É o seu ensaio para 2027.</p>
+        <figure class="presente-foto">
+          <a class="js-ampliar" href="img/bonus-natal.jpg"><img src="img/bonus-natal.jpg" width="720" height="1080" loading="lazy" alt="Imagem do bônus Natal 2026 Expresso: 20 páginas com calendário de 2026, 3 rotas com plano dia a dia, cardápio sem receita nova, preço sem desconto, limite por dia de entrega, mensagens e posts prontos, plano de produção de 14 a 24/12 e fechamento do ano."></a>
+        </figure>
+        <div class="presente-texto">
+          <h3>Natal 2026 Expresso</h3>
+          <p>Um plano curto para o Natal deste ano: um caminho para cada data de compra, um cardápio mínimo só com o que você já sabe fazer e as mensagens com as datas de 2026. É o seu ensaio para 2027.</p>
+          <p class="presente-preco"><span>Na versão completa</span> <strong>R$&nbsp;0</strong></p>
+        </div>
       </article>
 
-      <article class="presente">
+      <article class="presente presente-com-foto">
         <span class="selo-completo">na versão completa</span>
-        <h3>30 dias até a Páscoa</h3>
-        <p>Uma tarefa por dia, de 26 de janeiro a 24 de fevereiro. No dia 25, você abre a agenda com tudo pronto: produto testado, preço calculado, fotos feitas e clientes avisadas.</p>
+        <figure class="presente-foto">
+          <a class="js-ampliar" href="img/bonus-30-dias.jpg"><img src="img/bonus-30-dias.jpg" width="720" height="1080" loading="lazy" alt="Imagem do bônus 30 dias até a Páscoa: 29 páginas com uma tarefa por dia, de 26 de janeiro a 24 de fevereiro, em 4 semanas, com fichas para preencher e plano enxuto para quem comprou entre 8 e 24 de fevereiro."></a>
+        </figure>
+        <div class="presente-texto">
+          <h3>30 dias até a Páscoa</h3>
+          <p>Uma tarefa por dia, de 26 de janeiro a 24 de fevereiro. No dia 25, você abre a agenda com tudo pronto: produto testado, preço calculado, fotos feitas e clientes avisadas.</p>
+          <p class="presente-preco"><span>Na versão completa</span> <strong>R$&nbsp;0</strong></p>
+        </div>
       </article>
 
     </div>
@@ -250,61 +240,20 @@ src="https://www.facebook.com/tr?id=1671185087740383&ev=PageView&noscript=1"
   </div>
 </section>
 
-<section class="bloco">
+<section class="bloco daniela" id="daniela">
   <div class="coluna">
-    <h2>As 11 campanhas de 2027</h2>
-    <p>Só as datas que passaram no filtro. As de nível alto pedem campanha completa. As de nível médio dependem do seu jeito de trabalhar, e o calendário mostra quando valem a pena.</p>
-    <div class="rolagem">
-      <table class="campanhas">
-        <thead><tr><th>Data</th><th>Campanha</th><th>Nível</th></tr></thead>
-        <tbody>
-          <tr><td>seg, 8/3</td><td>Dia da Mulher, para empresas</td><td class="nivel-media">Média</td></tr>
-          <tr><td>dom, 28/3</td><td>Páscoa</td><td class="nivel-alta">Alta</td></tr>
-          <tr><td>dom, 9/5</td><td>Dia das Mães</td><td class="nivel-alta">Alta</td></tr>
-          <tr><td>sáb, 12/6</td><td>Dia dos Namorados</td><td class="nivel-alta">Alta</td></tr>
-          <tr><td>qui, 24/6</td><td>Festa Junina</td><td class="nivel-media">Média</td></tr>
-          <tr><td>dom, 8/8</td><td>Dia dos Pais</td><td class="nivel-media">Média</td></tr>
-          <tr><td>qua, 15/9</td><td>Setembro de reativação das clientes</td><td class="nivel-media">Média</td></tr>
-          <tr><td>ter, 12/10</td><td>Outubro das crianças e dos professores</td><td class="nivel-media">Média</td></tr>
-          <tr><td>sex, 26/11</td><td>Pré-venda de Natal, na Black Friday</td><td class="nivel-alta">Alta</td></tr>
-          <tr><td>1 a 17/12</td><td>Kits de fim de ano para empresas</td><td class="nivel-media">Média</td></tr>
-          <tr><td>sáb, 25/12</td><td>Natal</td><td class="nivel-alta">Alta</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
+    <h2>Conheça a Daniela</h2>
+    <p class="daniela-aviso">A Daniela é uma personagem. Mas, se você vende doce por encomenda, é bem provável que conheça alguém igual a ela. Ou que seja você.</p>
 
-<section class="bloco depoimentos" id="depoimentos" hidden>
-  <div class="coluna">
-    <h2>O que as confeiteiras estão dizendo</h2>
-    <div class="depos" id="lista-depoimentos"></div>
-  </div>
-</section>
+    <figure class="polaroid">
+      <img src="img/daniela.jpg" width="640" height="640" loading="lazy" alt="Ilustração da personagem Daniela: uma confeiteira sorrindo na cozinha, de dólmã branco e avental, com um bolo de chocolate ao fundo.">
+      <figcaption class="mao">Daniela, 35 anos</figcaption>
+    </figure>
 
-<section class="bloco">
-  <div class="coluna">
-    <div class="duas">
-      <div>
-        <h2>É para você se</h2>
-        <ul class="lista-sim">
-          <li>vende bolos, doces, kits ou sobremesas por encomenda, de casa ou numa operação pequena;</li>
-          <li>já perdeu vendas por abrir a agenda tarde, ou aceitou mais pedidos do que dava conta;</li>
-          <li>quer vender bem nas datas certas, sem tentar aproveitar todas;</li>
-          <li>vende pelo WhatsApp e pelo Instagram e quer mensagens que soem como você;</li>
-          <li>está começando e precisa de um caminho claro, ou já tem clientela e quer se organizar melhor.</li>
-        </ul>
-      </div>
-      <div>
-        <h2>Talvez não seja para você se</h2>
-        <ul class="lista-nao">
-          <li>procura receitas. Aqui não tem nenhuma;</li>
-          <li>quer uma lista com todas as datas comemorativas do ano. Este calendário faz o contrário;</li>
-          <li>espera uma promessa de quanto vai faturar. Ninguém pode te prometer isso com honestidade;</li>
-          <li>não pretende vender por encomenda em 2027.</li>
-        </ul>
-      </div>
-    </div>
+    <p>A Daniela tem 35 anos e vende bolos por encomenda da cozinha de casa. O bolo dela é bom, e as clientes sabem disso. Mas o problema nunca foi a receita.</p>
+    <p>Por muito tempo, o ano dela foi uma correria atrás da outra. A Páscoa chegava de surpresa. O Dia das Mães enchia a agenda de uma vez só. E o Natal terminava com ela entregando bolo na véspera, cansada, sem saber direito se tinha sobrado dinheiro.</p>
+    <p>Um dia ela parou de culpar o cansaço e foi atrás da parte que ninguém ensina pra quem faz doce: quando abrir a agenda, quantos pedidos cabem na semana e quanto cobrar pelo tempo dela.</p>
+    <p class="destaque">O Forno Cheio 2027 foi feito para que nenhuma Daniela precise descobrir isso sozinha, errando no caminho. Ele te entrega esse caminho pronto, com as datas, os prazos e as mensagens de cada campanha do ano.</p>
   </div>
 </section>
 

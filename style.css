@@ -1,12 +1,13 @@
 /*
+  VERSÃO DE TESTE: FUNDO BRANCO E SEMPRE NO MODO CLARO
   FORNO CHEIO 2027 | PÁGINA DE VENDAS COM DUAS VERSÕES
   Estilos da página. Este arquivo é carregado pelo index.html (link no <head>).
   As cores ficam todas no bloco :root logo abaixo. O modo escuro se ajusta sozinho.
 */
 
 :root {
-  --papel: #FFFBF8;
-  --cartao: #FFFFFF;
+  --papel: #FFFFFF;
+  --cartao: #FFFBF8;
   --tinta: #3B2419;
   --tinta-suave: #6E5449;
   --framboesa: #B3325A;
@@ -24,44 +25,6 @@
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --papel: #1D1411;
-    --cartao: #2A1D19;
-    --tinta: #F6E8E1;
-    --tinta-suave: #CDB5AA;
-    --framboesa: #EE7C9C;
-    --framboesa-escura: #B8506F;
-    --no-botao: #1D1411;
-    --glace: #4A2630;
-    --kraft: #8F714F;
-    --no-kraft: #FFF3EE;
-    --pauta: #3A4E66;
-    --margem: #9C4A5C;
-    --risco: rgba(246, 232, 225, 0.16);
-    --sombra: rgba(0, 0, 0, 0.55);
-    --faixa: #F6E8E1;
-    --na-faixa: #1D1411;
-  }
-}
-:root[data-theme="dark"] {
-  --papel: #1D1411;
-  --cartao: #2A1D19;
-  --tinta: #F6E8E1;
-  --tinta-suave: #CDB5AA;
-  --framboesa: #EE7C9C;
-  --framboesa-escura: #B8506F;
-  --no-botao: #1D1411;
-  --glace: #4A2630;
-  --kraft: #8F714F;
-  --no-kraft: #FFF3EE;
-  --pauta: #3A4E66;
-  --margem: #9C4A5C;
-  --risco: rgba(246, 232, 225, 0.16);
-  --sombra: rgba(0, 0, 0, 0.55);
-  --faixa: #F6E8E1;
-  --na-faixa: #1D1411;
 }
 *, *::before, *::after { box-sizing: inherit; }
 html {
@@ -247,115 +210,6 @@ a { color: var(--framboesa); }
 .etiqueta strong { display: block; font-size: 1.08rem; }
 .etiqueta span { font-size: 1rem; }
 
-/* Cinco datas em cobrinha, alinhadas às margens do texto:
-   1 ---- 2
-          |
-   4 ---- 3
-   |
-   5                                                        */
-.cobra {
-  --g: 1.6rem;   /* espaço entre as linhas e entre as colunas */
-  --c: 2.4rem;   /* tamanho do círculo */
-  list-style: none;
-  margin: 2rem 0 0.8rem;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: var(--g);
-  row-gap: var(--g);
-}
-.cobra li {
-  position: relative;
-  padding: calc(var(--c) + 0.55rem) 0 0.3rem calc(var(--c) * 0.5 + 0.9rem);
-}
-.cobra li:nth-child(1) { grid-area: 1 / 1; }
-.cobra li:nth-child(2) { grid-area: 1 / 2; }
-.cobra li:nth-child(3) { grid-area: 2 / 2; }
-.cobra li:nth-child(4) { grid-area: 2 / 1; }
-.cobra li:nth-child(5) { grid-area: 3 / 1; }
-/* do lado direito, círculo e texto encostam na margem direita */
-.cobra li:nth-child(2),
-.cobra li:nth-child(3) {
-  text-align: right;
-  padding-left: 0;
-  padding-right: calc(var(--c) * 0.5 + 0.9rem);
-}
-.cobra .num {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  display: grid;
-  place-items: center;
-  width: var(--c);
-  height: var(--c);
-  border-radius: 50%;
-  border: 2px solid var(--tinta);
-  background: var(--papel);
-  font-weight: 780;
-  font-size: 1.05rem;
-}
-.cobra li:nth-child(2) .num,
-.cobra li:nth-child(3) .num { left: auto; right: 0; }
-.cobra li:last-child .num { background: var(--framboesa); border-color: var(--framboesa); color: var(--no-botao); }
-.cobra strong { display: block; font-size: 1.05rem; line-height: 1.25; }
-.cobra .quando { display: block; color: var(--tinta-suave); font-size: 0.98rem; line-height: 1.35; margin-top: 0.2rem; }
-/* linhas retas: 1 → 2 e 3 → 4, na altura do centro dos círculos */
-.cobra li:nth-child(1)::after,
-.cobra li:nth-child(3)::after {
-  content: "";
-  position: absolute;
-  top: calc(var(--c) * 0.5 - 1px);
-  border-top: 2px dashed var(--tinta-suave);
-}
-.cobra li:nth-child(1)::after { left: calc(var(--c) * 0.5); right: calc(-100% - var(--g) + var(--c) * 0.5); }
-.cobra li:nth-child(3)::after { right: calc(var(--c) * 0.5); left: calc(-100% - var(--g) + var(--c) * 0.5); }
-/* descidas: 2 → 3 pela margem direita e 4 → 5 pela margem esquerda */
-.cobra li:nth-child(2)::after,
-.cobra li:nth-child(4)::after {
-  content: "";
-  position: absolute;
-  top: calc(var(--c) * 0.5);
-  height: calc(100% + var(--g));
-  border-left: 2px dashed var(--tinta-suave);
-}
-.cobra li:nth-child(2)::after { right: calc(var(--c) * 0.5 - 1px); }
-.cobra li:nth-child(4)::after { left: calc(var(--c) * 0.5 - 1px); }
-@media (min-width: 640px) { .cobra { --g: 2.2rem; } }
-
-/* Limite do forno */
-.limite {
-  margin: 1.6rem 0 1.8rem;
-  padding: 1.2rem 1.2rem 1rem;
-  background: var(--cartao);
-  border: 1px solid var(--risco);
-  border-radius: 0.5rem;
-}
-.limite-linha {
-  display: grid;
-  grid-template-columns: 6.6rem 1fr 3.4rem;
-  align-items: center;
-  gap: 0.7rem;
-  font-size: 1rem;
-  margin-bottom: 0.65rem;
-}
-.limite-barra { height: 0.8rem; background: var(--risco); border-radius: 0.4rem; overflow: hidden; }
-.limite-barra i { display: block; height: 100%; background: var(--kraft); border-radius: 0.4rem; }
-.limite-linha.manda .limite-barra i { background: var(--framboesa); }
-.limite-linha.manda { font-weight: 720; color: var(--framboesa); }
-.limite-linha b { font-variant-numeric: tabular-nums; text-align: right; }
-.limite figcaption { font-size: 1.35rem; margin-top: 0.4rem; }
-
-.frase-central span { display: block; }
-.frase-central {
-  font-size: 1.32rem;
-  font-weight: 700;
-  line-height: 1.4;
-  margin: 2.2rem 0 0;
-  padding-left: 1rem;
-  border-left: 3px solid var(--framboesa);
-}
-
 /* Algumas páginas por dentro */
 .galeria-largura { max-width: 40rem; margin: 0 auto; padding: 0 1.25rem; }
 .galeria {
@@ -441,18 +295,6 @@ a { color: var(--framboesa); }
 .descobertas { padding-left: 1.2rem; margin: 0.6rem 0 1.2rem; }
 .descobertas li { margin-bottom: 0.6rem; padding-left: 0.2rem; }
 .descobertas li::marker { color: var(--framboesa); }
-.rolagem { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1rem 0 1.2rem; }
-.planilha {
-  border-collapse: collapse;
-  min-width: 30rem;
-  width: 100%;
-  font-size: 0.95rem;
-  background: var(--cartao);
-  border: 1px solid var(--risco);
-}
-.planilha th, .planilha td { border: 1px solid var(--risco); padding: 0.45rem 0.65rem; text-align: left; white-space: nowrap; }
-.planilha th { background: var(--glace); font-weight: 720; }
-.status-sim { color: var(--framboesa); font-weight: 700; }
 .bonus-caixa {
   background: var(--glace);
   border-radius: 0.6rem;
@@ -498,41 +340,73 @@ a { color: var(--framboesa); }
   height: 0.44rem;
   background: var(--cartao);
 }
-.presente-duas { display: grid; gap: 1.2rem; }
 .presente .descobertas { margin-bottom: 1.4rem; }
-.chat-exemplo { margin: 0.4rem 0 0.6rem; }
-.chat-exemplo .msg { max-width: min(88%, 21rem); }
-.exemplo-nota { font-size: 1.3rem; text-align: right; }
-.presente, .presente-duas > *, .presente-tabela { min-width: 0; }
-.presente-tabela { margin: 0; }
-.presente-tabela .rolagem { margin: 0 0 0.4rem; }
-.presente-tabela .planilha { min-width: 24rem; }
-.presente-tabela figcaption { font-size: 1.25rem; }
 
-/* Campanhas */
-.campanhas { border-collapse: collapse; width: 100%; min-width: 26rem; font-size: 1rem; }
-.campanhas td, .campanhas th { padding: 0.7rem 0.6rem; border-bottom: 1px solid var(--risco); text-align: left; vertical-align: top; }
-.campanhas th { font-size: 0.9rem; color: var(--tinta-suave); font-weight: 650; }
-.campanhas td:first-child { white-space: nowrap; font-variant-numeric: tabular-nums; }
-.nivel-alta { color: var(--framboesa); font-weight: 720; }
-.nivel-media { color: var(--tinta-suave); }
+.presente { min-width: 0; }
 
-/* Como funciona */
-.passos { padding-left: 1.4rem; margin: 1.4rem 0 0; }
-.passos li { margin-bottom: 1rem; padding-left: 0.3rem; }
-.passos li::marker { font-weight: 780; color: var(--framboesa); }
-
-/* Para quem */
-.lista-sim, .lista-nao { list-style: none; padding: 0; margin: 0; }
-.lista-sim li, .lista-nao li { position: relative; padding-left: 1.8rem; margin-bottom: 0.8rem; }
-.lista-sim li::before, .lista-nao li::before {
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-weight: 800;
+/* Cartões de bônus com a imagem */
+.presente-com-foto { display: grid; gap: 1.3rem; }
+.presente-texto { min-width: 0; }
+.presente-foto { margin: 0; }
+.presente-foto a { display: block; border-radius: 0.7rem; }
+.presente-foto img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.7rem;
+  border: 1px solid var(--risco);
+  box-shadow: 0 12px 24px -18px var(--sombra);
 }
-.lista-sim li::before { content: "✓"; color: var(--framboesa); }
-.lista-nao li::before { content: "×"; color: var(--tinta-suave); font-size: 1.3rem; line-height: 1.3; }
+@media (max-width: 639px) {
+  .presente-foto { width: min(80%, 18rem); margin: 0.4rem auto 0; }
+}
+@media (min-width: 640px) {
+  .presente-com-foto { grid-template-columns: 13rem 1fr; align-items: start; gap: 1.6rem; }
+}
+.presente .presente-preco {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.2rem 0 0;
+  padding-top: 0.9rem;
+  border-top: 1px dashed var(--risco);
+}
+.presente-preco span { font-size: 0.95rem; color: var(--tinta-suave); font-weight: 650; }
+.presente-preco strong { font-size: 1.6rem; font-weight: 800; color: var(--framboesa); letter-spacing: -0.02em; }
+
+/* Faixa de prazo, acima do topo */
+.faixa-prazo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.2rem 0.8rem;
+  padding: 0.5rem 1rem;
+  background: #A3122E;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  text-decoration: none;
+}
+.faixa-prazo strong { font-weight: 760; }
+.faixa-prazo:hover span:first-child { text-decoration: underline; }
+.faixa-prazo:focus-visible { outline: 3px solid var(--tinta); outline-offset: -3px; }
+
+/* Conheça a Daniela */
+.daniela-aviso { color: var(--tinta-suave); font-size: 1.05rem; }
+.polaroid {
+  width: min(78%, 17rem);
+  margin: 1.8rem auto 2.2rem;
+  padding: 0.75rem 0.75rem 0.4rem;
+  background: #FFFFFF;
+  border: 1px solid var(--risco);
+  box-shadow: 0 18px 30px -20px var(--sombra);
+  transform: rotate(-2.5deg);
+}
+.polaroid img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+.polaroid figcaption { color: #3B2419; font-size: 1.45rem; text-align: center; padding: 0.45rem 0 0.15rem; }
 
 /* Oferta: duas versões */
 .oferta-largura { max-width: 58rem; margin: 0 auto; padding: 0 1.25rem; }
@@ -808,6 +682,12 @@ html:not(.faq-js) .perguntas details[open] summary::after { transform: rotate(18
 .barra-fixa .botao { font-size: 1rem; padding: 0.75rem 1.1rem; box-shadow: none; white-space: nowrap; }
 @media (min-width: 900px) { .barra-fixa { display: none; } .rodape { padding-bottom: 2.4rem; } }
 
+/* Celular: textos e botão do topo centralizados (no computador, o topo fica em duas colunas) */
+@media (max-width: 899px) {
+  .topo .marca, .heroi > div:first-child { text-align: center; }
+  .heroi .sub { margin-left: auto; margin-right: auto; }
+}
+
 /* Celular: títulos das seções centralizados (o topo da página fica como está),
    selo da garantia e chamada dos bônus no centro */
 @media (max-width: 759px) {
@@ -833,4 +713,5 @@ html:not(.faq-js) .perguntas details[open] summary::after { transform: rotate(18
   .perguntas summary::before, .perguntas summary::after { transition: none; }
   .carimbo-anel { animation: none; }
   .galeria img { transform: none !important; }
+  .polaroid { transform: none; }
 }

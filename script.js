@@ -19,6 +19,10 @@
      - Para ver como a seção fica antes de ter depoimentos, abra a página com ?ver=depoimentos no fim do endereço.
      - Use só depoimentos de verdade, com autorização da confeiteira para publicar.
 
+  5. FAIXA DE LANÇAMENTO: a faixa vermelha do topo diz que o preço vale para as primeiras
+     "compradoras" (100). Quando chegar nesse número de vendas na Cakto, mude "ativo" para false:
+     a faixa some. Lembre de mudar também o preço na Cakto e na página.
+
 */
 var CONFIG = {
   checkouts: {
@@ -35,7 +39,11 @@ var CONFIG = {
   },
   precos: { ebook: 10.00, completo: 27.90 },
   nomes: { ebook: "Forno Cheio 2027 - só o e-book", completo: "Forno Cheio 2027 - versão completa" },
-  fimDoBonusDeNatal: "2027-01-01T00:00:00-03:00"
+  fimDoBonusDeNatal: "2027-01-01T00:00:00-03:00",
+  lancamento: {
+    ativo: true,
+    compradoras: 100
+  }
 };
 
 /*
@@ -56,9 +64,21 @@ var DEPOIMENTOS = [
 (function () {
   var raiz = document.documentElement;
 
+  /* Faixa de lançamento */
+  var faixa = document.getElementById("faixa-prazo");
+  if (faixa) {
+    if (!CONFIG.lancamento || !CONFIG.lancamento.ativo) {
+      faixa.hidden = true;
+    } else {
+      var vagas = document.getElementById("faixa-vagas");
+      if (vagas) vagas.textContent = CONFIG.lancamento.compradoras;
+    }
+  }
+
   /* 1. Período: até 31/12/2026 mostra o bônus de Natal; depois, esconde. */
   var fimNatal = Date.parse(CONFIG.fimDoBonusDeNatal);
   raiz.setAttribute("data-periodo", Date.now() >= fimNatal ? "2027" : "2026");
+
 
   /* 2. Checkouts */
   function linkValido(url) { return typeof url === "string" && url.indexOf("http") === 0; }
