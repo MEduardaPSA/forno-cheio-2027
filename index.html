@@ -12,15 +12,28 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Caveat:wght@500..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<!--
-  PIXEL DA META
-  Cole aqui o código base do seu Pixel, logo antes de </head>.
-  A página já dispara o evento InitiateCheckout (com a versão e o valor)
-  quando alguém clica em "Quero só o e-book" ou "Quero a versão completa".
--->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1671185087740383');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Code -->
+<!-- O script.js também registra o evento InitiateCheckout quando alguém clica para comprar -->
 <script src="script.js" defer></script>
 </head>
 <body>
+<!-- Meta Pixel (sem JavaScript) -->
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1671185087740383&ev=PageView&noscript=1"
+/></noscript>
 
 <header class="topo" id="topo">
   <div class="largo">
@@ -394,13 +407,6 @@
 
 <footer class="rodape">
   <div class="coluna">
-    <div class="rodape-whats" id="rodape-whats" hidden>
-      <p>Ficou com alguma dúvida? Fala com a gente.</p>
-      <a class="botao-whats" id="link-whats" href="#" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18.5 L5.2 15 A8 8 0 1 1 8.6 18.3 Z"/><path class="pontos" d="M8.6 11.6h.01M12 11.6h.01M15.4 11.6h.01"/></svg>
-        Falar no WhatsApp
-      </a>
-    </div>
     <p>Forno Cheio 2027. 60.979.139 Maria Eduarda Pereira de Sousa Araujo, CNPJ 60.979.139/0001-50</p>
     <p>Contato: <a href="mailto:contatocurso2027@gmail.com">contatocurso2027@gmail.com</a></p>
     <p>Este material é um guia de planejamento. Os resultados de venda dependem de cada negócio e não são garantidos.</p>
