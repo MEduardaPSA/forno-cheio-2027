@@ -118,8 +118,29 @@ a { color: var(--framboesa); }
   padding-top: 1.6rem;
 }
 .pre { font-weight: 600; color: var(--tinta-suave); margin-bottom: 0.9rem; }
-.sub { font-size: 1.2rem; max-width: 36rem; }
+.sub { font-size: 1.2rem; max-width: 36rem; margin-bottom: 1.6rem; }
 .preco-curto { margin-top: 1.2rem; font-size: 1rem; color: var(--tinta-suave); }
+.heroi h1 { font-size: clamp(2rem, 5.6vw, 3.1rem); }
+.heroi-selos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0;
+  margin: 1rem 0 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--tinta-suave);
+}
+.heroi-selos span + span::before { content: "|"; margin: 0 0.6rem; color: var(--risco); font-weight: 400; }
+@media (max-width: 899px) { .heroi-selos { justify-content: center; } }
+@media (max-width: 480px) {
+  .heroi-selos { font-size: 0.8rem; letter-spacing: -0.01em; }
+  .heroi-selos span + span::before { margin: 0 0.35rem; }
+}
+@media (max-width: 389px) {
+  /* celulares bem estreitos: os selos quebram em duas linhas, sem o separador sobrando */
+  .heroi-selos { gap: 0.2rem 0.9rem; }
+  .heroi-selos span + span::before { display: none; }
+}
 @media (min-width: 900px) {
   .heroi { grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; }
 }
@@ -293,6 +314,14 @@ a { color: var(--framboesa); }
 .entrega h3 svg { flex: 0 0 auto; width: 1.3rem; height: 1.3rem; position: relative; top: 0.15rem; }
 .entrega h3 svg path { fill: none; stroke: var(--framboesa); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
 .descobertas { padding-left: 1.2rem; margin: 0.6rem 0 1.2rem; }
+.entrega-sub { font-weight: 760; font-size: 1.12rem; margin: 1.8rem 0 0.4rem; }
+.partes { list-style: none; padding: 0; margin: 0.8rem 0 0.4rem; }
+.partes li {
+  padding: 0.75rem 0 0.75rem 1rem;
+  border-left: 3px solid var(--glace);
+  margin-bottom: 0.5rem;
+}
+.partes li strong { color: var(--framboesa); }
 .descobertas li { margin-bottom: 0.6rem; padding-left: 0.2rem; }
 .descobertas li::marker { color: var(--framboesa); }
 .bonus-caixa {
@@ -374,6 +403,21 @@ a { color: var(--framboesa); }
 }
 .presente-preco span { font-size: 0.95rem; color: var(--tinta-suave); font-weight: 650; }
 .presente-preco strong { font-size: 1.6rem; font-weight: 800; color: var(--framboesa); letter-spacing: -0.02em; }
+
+.preco-par { display: inline-flex; align-items: baseline; gap: 0.6rem; }
+.preco-par del, .bonus-total del { color: var(--tinta-suave); font-weight: 600; font-size: 1rem; text-decoration-thickness: 2px; text-decoration-color: var(--framboesa); }
+
+/* Total dos bônus */
+.bonus-total {
+  margin: 2.2rem 0 0;
+  padding: 1.1rem 1.3rem;
+  background: var(--glace);
+  border-radius: 0.6rem;
+}
+.bonus-total-linha { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin: 0; font-weight: 650; }
+.bonus-total-linha + .bonus-total-linha { margin-top: 0.4rem; padding-top: 0.6rem; border-top: 1px dashed rgba(59, 36, 25, 0.25); }
+.bonus-total del { font-size: 1.15rem; }
+.bonus-total-zero strong { font-size: 1.9rem; font-weight: 800; color: var(--framboesa); letter-spacing: -0.02em; }
 
 /* Faixa de prazo, acima do topo */
 .faixa-prazo {
@@ -492,6 +536,24 @@ a { color: var(--framboesa); }
 .botao-contorno:hover { box-shadow: 0 3px 0 var(--framboesa); }
 .botao-contorno:active { box-shadow: 0 0 0 var(--framboesa); }
 .plano-nota { font-size: 1.35rem; margin: 0.9rem 0 0; text-align: center; }
+/* Conta rápida, logo abaixo dos preços */
+.conta {
+  max-width: 34rem;
+  margin: 2.2rem auto 0;
+  padding: 1.3rem 1.5rem 1.2rem;
+  text-align: center;
+  background: var(--cartao);
+  border: 1.5px dashed var(--margem);
+  border-radius: 14px;
+}
+.conta-titulo { font-size: 1.85rem; margin: 0 0 0.35rem; }
+.conta p:last-child { margin: 0; font-size: 1.05rem; text-wrap: pretty; }
+.conta strong { color: var(--framboesa-escura); }
+@media (max-width: 480px) {
+  .conta { padding: 1.1rem 1.1rem 1rem; }
+  .conta-titulo { font-size: 1.65rem; }
+  .conta p:last-child { font-size: 1rem; }
+}
 .miudo { font-size: 0.92rem; color: var(--tinta-suave); margin: 1.4rem auto 0; text-align: center; }
 /* Selo "versão completa" em O que você recebe */
 .entrega h3 { flex-wrap: wrap; }
@@ -587,12 +649,25 @@ html:not(.faq-js) .perguntas details[open] summary::after { transform: rotate(18
 
 /* Depoimentos (preenchidos pelo script.js) */
 [hidden] { display: none !important; }
-.depos {
-  display: grid;
-  gap: 1.6rem;
-  margin-top: 1.8rem;
+.depoimentos .coluna { text-align: center; }
+.depoimentos h2 { text-wrap: balance; }
+.galeria-depos { padding-top: 1.2rem; }
+@media (min-width: 760px) { .galeria-depos { grid-template-columns: repeat(3, 1fr); gap: 1.6rem 1.2rem; } }
+.depo { margin: 0; }
+.depo img { aspect-ratio: 390 / 844; object-fit: cover; object-position: top; }
+.depo figcaption { display: flex; flex-direction: column; align-items: center; gap: 0.15rem; margin-top: 0.8rem; text-align: center; }
+.depo-nome { font-size: 1.4rem; line-height: 1; }
+.depo-detalhe { font-size: 0.88rem; color: var(--tinta-suave); line-height: 1.3; }
+.depo-caixa {
+  aspect-ratio: 390 / 844;
+  border-radius: 0.9rem;
+  border: 1px solid var(--risco);
+  background: #FFFFFF;
+  box-shadow: 0 16px 28px -18px var(--sombra);
 }
-.depo { margin: 0; display: flex; flex-direction: column; gap: 0.7rem; }
+.galeria-depos .depo-vazio:nth-child(1) .depo-caixa { transform: rotate(-1.2deg); }
+.galeria-depos .depo-vazio:nth-child(2) .depo-caixa { transform: rotate(1deg); }
+.galeria-depos .depo-vazio:nth-child(3) .depo-caixa { transform: rotate(-0.6deg); }
 .depo-balao {
   margin: 0;
   background: var(--cartao);
@@ -604,23 +679,6 @@ html:not(.faq-js) .perguntas details[open] summary::after { transform: rotate(18
   line-height: 1.5;
 }
 .depo-balao p { margin: 0; }
-.depo-print {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 0.6rem;
-  border: 1px solid var(--risco);
-  box-shadow: 0 10px 20px -16px var(--sombra);
-}
-.depo figcaption { font-size: 0.95rem; color: var(--tinta-suave); padding-left: 0.3rem; }
-.depo figcaption strong { color: var(--tinta); }
-.depo-aviso {
-  margin-top: 1.4rem;
-  padding: 0.8rem 1rem;
-  border: 2px dashed var(--framboesa);
-  border-radius: 0.5rem;
-  font-size: 0.95rem;
-}
 
 /* Final */
 .final { text-align: left; }

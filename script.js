@@ -14,10 +14,11 @@
 
   3. Para testar um checkout específico, abra a página com ?ck=a, ?ck=b ou ?ck=c no fim do endereço.
 
-  4. DEPOIMENTOS: cole os depoimentos reais na lista DEPOIMENTOS, logo abaixo do CONFIG.
-     - Enquanto a lista estiver vazia, a seção de depoimentos fica escondida.
-     - Para ver como a seção fica antes de ter depoimentos, abra a página com ?ver=depoimentos no fim do endereço.
-     - Use só depoimentos de verdade, com autorização da confeiteira para publicar.
+  4. DEPOIMENTOS (prints de WhatsApp):
+     - Enquanto a lista DEPOIMENTOS estiver vazia, a seção mostra três caixas em branco.
+     - Salve cada print na pasta img/depoimentos/ (de preferência em .jpg, com até 900 px de largura)
+       e coloque cada um na lista DEPOIMENTOS, logo abaixo do CONFIG. As caixas em branco somem sozinhas.
+     - Use só prints reais, com autorização da confeiteira. Se ela preferir, apague o nome e a foto no print.
 
   5. FAIXA DE LANÇAMENTO: a faixa vermelha do topo diz que o preço vale para as primeiras
      "compradoras" (100). Quando chegar nesse número de vendas na Cakto, mude "ativo" para false:
@@ -48,18 +49,18 @@ var CONFIG = {
 
 /*
   Cada depoimento tem:
-  - texto:   o que ela escreveu, com as palavras dela (pode deixar vazio se usar imagem);
-  - nome:    o primeiro nome dela;
-  - detalhe: o que ela vende e a cidade, por exemplo "bolos e doces em Goiânia";
-  - imagem:  opcional. Caminho de um print da conversa, por exemplo "img/depo-ana.jpg".
-             Se tiver imagem, ela aparece no lugar do texto.
+  - imagem:  o caminho do print, por exemplo "img/depoimentos/ana.jpg";
+  - nome:    o primeiro nome dela (aparece embaixo do print);
+  - detalhe: o que ela vende e a cidade, por exemplo "bolos em Goiânia" (opcional);
+  - texto:   opcional. Se não tiver print, escreva aqui a mensagem dela e ela aparece num balão.
 
-  Exemplo do formato (apague as barras // para usar):
-  // { texto: "Escreva aqui o que ela disse.", nome: "Nome", detalhe: "o que vende, em qual cidade", imagem: "" },
+  Exemplo (copie a linha, tire as duas barras // do começo e troque os dados):
+  // { imagem: "img/depoimentos/ana.jpg", nome: "Ana", detalhe: "bolos em Goiânia" },
 */
 var DEPOIMENTOS = [
 
 ];
+
 
 (function () {
   var raiz = document.documentElement;
@@ -138,24 +139,27 @@ var DEPOIMENTOS = [
   /* 3. Depoimentos */
   var secao = document.getElementById("depoimentos");
   var lista = document.getElementById("lista-depoimentos");
-  var mostrarExemplo = params.get("ver") === "depoimentos";
   var itens = DEPOIMENTOS.slice();
-  if (!itens.length && mostrarExemplo) {
-    itens = [1, 2, 3].map(function () {
-      return { texto: "[Cole aqui a mensagem real da confeiteira, com as palavras dela.]", nome: "[Primeiro nome]", detalhe: "[o que vende], em [cidade]", imagem: "" };
-    });
-  }
   if (secao && lista && itens.length) {
+    lista.innerHTML = "";
+    var intro = document.getElementById("depo-intro");
+    if (intro) intro.textContent = "Alguns dos feedbacks que recebemos das confeiteiras. Toque num print para ver maior.";
     itens.forEach(function (d) {
       var fig = document.createElement("figure");
       fig.className = "depo";
+      var descricao = "Depoimento de " + (d.nome || "cliente") + (d.detalhe ? ", " + d.detalhe : "");
       if (d.imagem) {
+        var link = document.createElement("a");
+        link.className = "js-ampliar";
+        link.href = d.imagem;
         var img = document.createElement("img");
-        img.className = "depo-print";
         img.src = d.imagem;
         img.loading = "lazy";
-        img.alt = "Mensagem de " + (d.nome || "cliente") + (d.texto ? ": " + d.texto : "");
-        fig.appendChild(img);
+        img.width = 390;
+        img.height = 844;
+        img.alt = descricao + (d.texto ? ": " + d.texto : "");
+        link.appendChild(img);
+        fig.appendChild(link);
       } else {
         var balao = document.createElement("blockquote");
         balao.className = "depo-balao";
@@ -165,20 +169,19 @@ var DEPOIMENTOS = [
         fig.appendChild(balao);
       }
       var leg = document.createElement("figcaption");
-      var forte = document.createElement("strong");
-      forte.textContent = d.nome || "";
-      leg.appendChild(forte);
-      if (d.detalhe) leg.appendChild(document.createTextNode(", " + d.detalhe));
+      var nome = document.createElement("span");
+      nome.className = "depo-nome mao";
+      nome.textContent = d.nome || "";
+      leg.appendChild(nome);
+      if (d.detalhe) {
+        var det = document.createElement("span");
+        det.className = "depo-detalhe";
+        det.textContent = d.detalhe;
+        leg.appendChild(det);
+      }
       fig.appendChild(leg);
       lista.appendChild(fig);
     });
-    if (!DEPOIMENTOS.length) {
-      var aviso = document.createElement("p");
-      aviso.className = "depo-aviso";
-      aviso.textContent = "Prévia da seção. Ela só aparece para as visitantes quando você colar depoimentos reais na lista DEPOIMENTOS do script.js.";
-      lista.parentNode.appendChild(aviso);
-    }
-    secao.hidden = false;
   }
 
   /* 4. Perguntas frequentes: abre e fecha com animação */
