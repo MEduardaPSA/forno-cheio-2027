@@ -7,11 +7,12 @@
 <meta name="description" content="As datas que realmente trazem pedidos em 2027, com o dia de abrir a agenda, o que oferecer e as mensagens prontas para mandar às suas clientes. A partir de R$ 10.">
 <meta property="og:title" content="Forno Cheio 2027 | O calendário de encomendas da confeiteira">
 <meta property="og:description" content="Em 2027, a Páscoa cai em 28 de março. Suas encomendas precisam abrir em fevereiro.">
+<meta property="og:image" content="https://forno-cheio-2027.vercel.app/img/heroi-kit-compartilhar.jpg">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Caveat:wght@500..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=20261120">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -27,7 +28,7 @@ fbq('track', 'PageView');
 </script>
 <!-- End Meta Pixel Code -->
 <!-- O script.js também registra o evento InitiateCheckout quando alguém clica para comprar -->
-<script src="script.js" defer></script>
+<script src="script.js?v=20261120" defer></script>
 </head>
 <body>
 <!-- Meta Pixel (sem JavaScript) -->
@@ -36,7 +37,7 @@ src="https://www.facebook.com/tr?id=1671185087740383&ev=PageView&noscript=1"
 /></noscript>
 
 <a class="faixa-prazo" id="faixa-prazo" href="#oferta">
-  <span>Preço de lançamento válido só para as <strong>primeiras <span id="faixa-vagas">100</span> compradoras</strong>.</span>
+  <span id="faixa-texto">Preço de lançamento só até <strong>quarta, 18/11</strong>. Depois, o preço sobe.</span>
 </a>
 
 <header class="topo" id="topo">
@@ -50,19 +51,11 @@ src="https://www.facebook.com/tr?id=1671185087740383&ev=PageView&noscript=1"
         <a class="botao" href="#oferta">Quero planejar meu 2027</a>
         <p class="heroi-selos"><span>A partir de R$&nbsp;10</span><span>Acesso imediato</span><span>Garantia de 7 dias</span></p>
       </div>
-      <figure class="calendarios" role="img" aria-label="Calendários de fevereiro e março de 2027. O dia 28 de março, Páscoa, está circulado, com uma seta voltando até 25 de fevereiro, o dia de abrir as encomendas.">
-        <div class="cal-par">
-<div class="cal" style="--rot:-1.6deg" aria-hidden="true"><p class="cal-mes">Fevereiro 2027</p><div class="cal-grade"><span class="c-h">D</span><span class="c-h">S</span><span class="c-h">T</span><span class="c-h">Q</span><span class="c-h">Q</span><span class="c-h">S</span><span class="c-h">S</span><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span class="c-marca">25</span><span>26</span><span>27</span><span>28</span></div></div>
-<div class="cal" style="--rot:1.3deg" aria-hidden="true"><p class="cal-mes">Março 2027</p><div class="cal-grade"><span class="c-h">D</span><span class="c-h">S</span><span class="c-h">T</span><span class="c-h">Q</span><span class="c-h">Q</span><span class="c-h">S</span><span class="c-h">S</span><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span class="c-marca">28</span><span>29</span><span>30</span><span>31</span></div></div>
-        </div>
-        <svg class="seta" viewBox="0 0 300 70" aria-hidden="true">
-          <path class="traco" d="M 262 10 C 215 64, 95 66, 42 18"/>
-          <path class="ponta" d="M 46 30 L 42 18 L 55 21"/>
-        </svg>
-        <div class="cal-notas mao" aria-hidden="true">
-          <p>abrir as encomendas aqui: quinta, 25</p>
-          <p>Páscoa: domingo, 28</p>
-        </div>
+      <figure class="heroi-foto">
+        <picture>
+          <source srcset="img/heroi-kit.webp" type="image/webp">
+          <img src="img/heroi-kit.png" width="1146" height="768" fetchpriority="high" alt="O kit Forno Cheio 2027: o e-book, com os calendários de fevereiro e março de 2027 na capa, a Planilha Forno Cheio aberta no notebook, o calendário de mesa de janeiro de 2027 e os bônus Natal 2026 Expresso e 30 dias até a Páscoa.">
+        </picture>
       </figure>
     </div>
   </div>
@@ -114,17 +107,6 @@ src="https://www.facebook.com/tr?id=1671185087740383&ev=PageView&noscript=1"
         <li><strong>A revisão de cada campanha.</strong> O que anotar no fim de cada data, para a próxima começar mais fácil.</li>
       </ul>
 
-      <p class="entrega-sub">Algumas coisas que você vai descobrir lá dentro</p>
-      <ul class="descobertas">
-        <li>Por que, em 2027, a sua última entrega de Páscoa é na quinta-feira, e não no sábado.</li>
-        <li>Quantos dias antes abrir a agenda em cada tipo de data, e por que a conta começa pela última entrega.</li>
-        <li>A conta de dois minutos que mostra quantos pedidos cabem na sua semana, e o que fazer quando você quiser aceitar mais.</li>
-        <li>Como vender o Natal na semana da Black Friday sem dar um centavo de desconto.</li>
-        <li>Por que o primeiro produto a ficar pronto no Natal deve ser o biscoito.</li>
-        <li>A mensagem que traz de volta a cliente que sumiu, sem parecer cobrança.</li>
-        <li>O que vender na Páscoa se você não trabalha com chocolate.</li>
-        <li>O que fazer se você comprou em fevereiro e a Páscoa já está perto.</li>
-      </ul>
     </div>
 
   </div>
@@ -133,11 +115,17 @@ src="https://www.facebook.com/tr?id=1671185087740383&ev=PageView&noscript=1"
 <section class="bloco por-dentro" id="por-dentro">
   <div class="coluna">
     <h2>Algumas páginas por dentro</h2>
-    <p>Quatro páginas tiradas do meio do e-book, do jeito que você vai ver no celular.</p>
+    <p>É assim que o Forno Cheio chega para você: um e-book em PDF, feito para abrir no celular sempre que precisar. Aqui embaixo estão quatro páginas tiradas do meio dele.</p>
+    <ul class="por-dentro-itens">
+      <li>E-book em PDF</li>
+      <li>Para ler no celular</li>
+      <li>11 campanhas de 2027</li>
+      <li>Acesso vitalício</li>
+    </ul>
   </div>
 
-  <div class="galeria-largura">
-    <div class="galeria">
+  <div class="carrossel" id="carrossel" aria-label="Páginas do e-book">
+    <div class="carrossel-trilho">
       <figure>
         <a class="js-ampliar" href="img/por-dentro-janeiro.jpg"><img src="img/por-dentro-janeiro.jpg" width="720" height="1276" loading="lazy" alt="Página de janeiro do e-book: a prioridade do mês, o calendário com os dias marcados e a lista do que fazer em cada data."></a>
         <figcaption class="mao">um mês por página, com o que fazer em cada dia</figcaption>
@@ -159,6 +147,7 @@ src="https://www.facebook.com/tr?id=1671185087740383&ev=PageView&noscript=1"
 
   <div class="coluna por-dentro-fecho">
     <p class="destaque">Isso foi só uma espiadinha. O seu 2027 inteiro está nas outras mais de 200 páginas.</p>
+    <p class="por-dentro-completa">E, na versão completa, o e-book chega junto com a planilha, os textos para copiar e o calendário para imprimir.</p>
     <a class="botao" href="#oferta">Quero ver o resto</a>
   </div>
 </section>

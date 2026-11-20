@@ -142,7 +142,18 @@ a { color: var(--framboesa); }
   .heroi-selos span + span::before { display: none; }
 }
 @media (min-width: 900px) {
-  .heroi { grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; }
+  .heroi { grid-template-columns: 1.05fr 0.95fr; gap: 3rem; }
+}
+
+/* Foto do e-book no herói */
+.heroi-foto { margin: 0; }
+.heroi-foto img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 899px) {
+  .heroi-foto { max-width: 34rem; margin: 0 auto; }
 }
 
 /* Calendários do herói */
@@ -232,6 +243,27 @@ a { color: var(--framboesa); }
 .etiqueta span { font-size: 1rem; }
 
 /* Algumas páginas por dentro */
+.por-dentro-itens {
+  list-style: none;
+  padding: 0;
+  margin: 0.4rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+}
+@media (min-width: 900px) { .por-dentro-itens { justify-content: flex-start; } }
+.por-dentro-itens li {
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.32rem 0.75rem;
+  border-radius: 999px;
+  background: var(--cartao);
+  border: 1px solid var(--glace);
+  color: var(--tinta);
+}
+
+/* Grade de imagens (usada nos depoimentos) */
 .galeria-largura { max-width: 40rem; margin: 0 auto; padding: 0 1.25rem; }
 .galeria {
   display: grid;
@@ -256,7 +288,6 @@ a { color: var(--framboesa); }
 .galeria figure:nth-child(4) img { transform: rotate(-0.8deg); }
 .galeria figcaption { font-size: 1.3rem; text-align: center; margin-top: 0.8rem; line-height: 1.1; }
 @media (max-width: 759px) {
-  /* No celular, as páginas passam de lado, com o dedo */
   .galeria-largura { padding: 0; }
   .galeria {
     grid-template-columns: none;
@@ -270,6 +301,49 @@ a { color: var(--framboesa); }
   }
   .galeria figure { scroll-snap-align: start; }
 }
+
+/* Carrossel: as páginas passam sozinhas, saem de um lado e voltam do outro */
+.carrossel {
+  margin-top: 2.2rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+}
+.carrossel::-webkit-scrollbar { display: none; }
+.carrossel-trilho {
+  display: flex;
+  gap: 2.2rem;
+  width: max-content;
+  padding: 1rem 1.25rem 0.6rem;
+}
+.carrossel figure { margin: 0; width: 17rem; flex: none; }
+.carrossel a { display: block; border-radius: 0.9rem; }
+.carrossel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.9rem;
+  border: 1px solid var(--risco);
+  box-shadow: 0 16px 28px -18px var(--sombra);
+  background: var(--cartao);
+}
+.carrossel figure:nth-child(4n+1) img { transform: rotate(-1.2deg); }
+.carrossel figure:nth-child(4n+2) img { transform: rotate(1deg); }
+.carrossel figure:nth-child(4n+3) img { transform: rotate(0.6deg); }
+.carrossel figure:nth-child(4n+4) img { transform: rotate(-0.8deg); }
+.carrossel figcaption { font-size: 1.3rem; text-align: center; margin-top: 0.8rem; line-height: 1.1; }
+@media (max-width: 759px) {
+  .carrossel-trilho { gap: 1.4rem; }
+  .carrossel figure { width: 15rem; }
+  .carrossel { -webkit-mask-image: none; mask-image: none; }
+}
+/* Sem JavaScript, ou com animação reduzida: dá para passar com o dedo */
+.carrossel:not(.ativo) { scroll-snap-type: x mandatory; }
+.carrossel:not(.ativo) figure { scroll-snap-align: center; }
+.por-dentro-completa { color: var(--tinta-suave); margin-bottom: 1.6rem; }
 .por-dentro-fecho { margin-top: 2.4rem; }
 .por-dentro-fecho .destaque { margin-top: 0; }
 .por-dentro-fecho .botao { display: block; width: fit-content; min-width: min(100%, 22rem); margin: 0 auto; text-align: center; }
@@ -770,6 +844,6 @@ html:not(.faq-js) .perguntas details[open] summary::after { transform: rotate(18
   .barra-fixa, .botao { transition: none; }
   .perguntas summary::before, .perguntas summary::after { transition: none; }
   .carimbo-anel { animation: none; }
-  .galeria img { transform: none !important; }
+  .galeria img, .carrossel img { transform: none !important; }
   .polaroid { transform: none; }
 }
